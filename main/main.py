@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import os
 
 class Client(commands.Bot):
     def __init__(self):
@@ -18,4 +17,4 @@ class Client(commands.Bot):
         synced = await bot.tree.sync()
            
 bot = Client()
-bot.run("ODg4NjIyNzQwNjk1ODE4Mjgw.G0o362.hsjc6jA1j5F4qTyM4Cjlj1S5Rx5Ost1Wdf-iTg")
+bot.run("TOKEN")
