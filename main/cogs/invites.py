@@ -1,15 +1,16 @@
-import discord
+import discord  
 from discord.ext import commands
 from discord import app_commands
+import json
 
 class invites(commands.Cog):
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
+        
+    f = open("main/invites.json")
+    data = json.load(f)
 
-    @app_commands.command(name="questions", description="Send you answers!")
-    async def questions(self, interaction: discord.Interaction):
-        await interaction.response.send_message(content="Hello")
 
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(invites(bot))

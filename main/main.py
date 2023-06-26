@@ -7,7 +7,7 @@ class Client(commands.Bot):
         super().__init__(command_prefix=commands.when_mentioned_or("#"), 
                          intents=discord.Intents().all())
         
-        self.cogslist = ["cogs.invites"]
+        self.cogslist = ["cogs.invites", "cogs.inviteshop"]
     
     async def setup_hook(self):
         for ext in self.cogslist:
@@ -18,4 +18,4 @@ class Client(commands.Bot):
         synced = await bot.tree.sync()
            
 bot = Client()
-bot.run("MTEyMjc4NDExMzA0NTI3NDcwNQ.GVJzoL.N3nKSog_-VxkIOZ7g4MIfcF_2tCIjR--2yHXwI")
+bot.run("ODg4NjIyNzQwNjk1ODE4Mjgw.G0o362.hsjc6jA1j5F4qTyM4Cjlj1S5Rx5Ost1Wdf-iTg")
