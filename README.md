@@ -1,2 +1,2 @@
 # KiwiInvites
-cc
+Invite Bot for Kiwi Discord Server.
