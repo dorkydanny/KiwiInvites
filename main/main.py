@@ -1,26 +1,21 @@
 import discord
-
-from discord import app_commands
 from discord.ext import commands
 import os
-bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
-@bot.event
-async def on_ready():
-    print("Bot at Kiwi's service!")
-    try:
+class Client(commands.Bot):
+    def __init__(self):
+        super().__init__(command_prefix=commands.when_mentioned_or("#"), 
+                         intents=discord.Intents().all())
+        
+        self.cogslist = ["cogs.invites", "cogs.inviteshop"]
+    
+    async def setup_hook(self):
+        for ext in self.cogslist:
+            await self.load_extension(ext)
+    
+    async def on_ready(self):
+        print(bot.user.name + " is ready.")
         synced = await bot.tree.sync()
-        print(f"Synced {len(synced)} command(s)")
-    except Exception as e:
-        print(e)
-
-@bot.tree.command(name="invites")
-async def invites(interaction: discord.Interaction, user:discord.User):
-    total_invites = 0
-    for i in await interaction.guild.invites():
-        if i.inviter == user:
-            total_invites += i.uses
-    await interaction.response.send_message(total_invites)
-
-bot.run(os.environ.get('TOKEN'))
-
+           
+bot = Client()
+bot.run("ODg4NjIyNzQwNjk1ODE4Mjgw.G0o362.hsjc6jA1j5F4qTyM4Cjlj1S5Rx5Ost1Wdf-iTg")
