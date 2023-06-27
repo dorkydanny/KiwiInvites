@@ -46,7 +46,7 @@ class invitesshop(commands.Cog):
         discord.app_commands.Choice(name="Premium", value="premium"),
         discord.app_commands.Choice(name="Kiwi", value="kiwi")
     ])
-    async def buy(self, interaction: discord.Interaction, user: discord.User, ranks: discord.app_commands.Choice[str]):
+    async def gift(self, interaction: discord.Interaction, user: discord.User, ranks: discord.app_commands.Choice[str]):
         ranks = ranks.value
         prices = {"premium" : 15, "kiwi" : 30}
         if self.data[str(interaction.user.id)] >= prices[ranks]:
